@@ -7,7 +7,6 @@
         "titulo": "Fundamentos de tratamiento de datos para Data Science",
         "sub": [
           { "titulo": "Introducción", "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.md" },
-          { "titulo": "Ejercicios", "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.md" }
         ]
       }
     ]
