@@ -1,34 +1,39 @@
 let apuntes = [];
 
-fetch("data/apuntes.json")
+const menu = document.getElementById("menu");
+const content = document.getElementById("content");
+const search = document.getElementById("search");
+
+fetch("js/apuntes.json")
   .then(res => res.json())
   .then(data => {
     apuntes = data;
-    mostrarApuntes(apuntes);
+    renderMenu(apuntes);
   });
 
-function mostrarApuntes(lista) {
-  const container = document.getElementById("apuntes-container");
-  container.innerHTML = "";
-
+function renderMenu(lista) {
+  menu.innerHTML = "";
   lista.forEach(apunte => {
     const div = document.createElement("div");
-    div.className = "apunte";
-    div.innerHTML = `
-      <h3>${apunte.titulo}</h3>
-      <small>${apunte.categoria}</small>
-      <p>${apunte.contenido}</p>
-    `;
-    container.appendChild(div);
+    div.className = "apunte-link";
+    div.textContent = apunte.titulo;
+    div.onclick = () => loadApunte(apunte.ruta);
+    menu.appendChild(div);
   });
 }
 
-document.getElementById("buscador").addEventListener("input", e => {
+function loadApunte(ruta) {
+  fetch(ruta)
+    .then(res => res.text())
+    .then(md => {
+      content.innerHTML = marked.parse(md);
+    });
+}
+
+search.addEventListener("input", e => {
   const texto = e.target.value.toLowerCase();
   const filtrados = apuntes.filter(a =>
-    a.titulo.toLowerCase().includes(texto) ||
-    a.contenido.toLowerCase().includes(texto)
+    a.titulo.toLowerCase().includes(texto)
   );
-  mostrarApuntes(filtrados);
+  renderMenu(filtrados);
 });
-
