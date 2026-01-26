@@ -1,16 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
+  if (typeof marked === "undefined") {
+    console.error("marked no está definido. Revisa que el script de marked.min.js esté cargado correctamente.");
+    return;
+  }
+
   let apuntes = [];
 
   const menu = document.getElementById("menu");
   const content = document.getElementById("content");
   const search = document.getElementById("search");
 
-  // Cargar apuntes desde GitHub raw JSON
   fetch("https://raw.githubusercontent.com/juaniamaro/IA/main/data/apuntes.json")
-    .then(res => {
-      if (!res.ok) throw new Error("No se pudo cargar el JSON");
-      return res.json();
-    })
+    .then(res => res.json())
     .then(data => {
       apuntes = data;
       renderMenu(apuntes);
@@ -20,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       menu.innerHTML = "<p>No se pudieron cargar los apuntes.</p>";
     });
 
-  // Renderizar menú lateral
   function renderMenu(lista) {
     menu.innerHTML = "";
     lista.forEach(apunte => {
@@ -32,13 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cargar un apunte en Markdown
   function loadApunte(ruta) {
     fetch(ruta)
-      .then(res => {
-        if (!res.ok) throw new Error("No se pudo cargar el apunte");
-        return res.text();
-      })
+      .then(res => res.text())
       .then(md => {
         content.innerHTML = marked.parse(md);
       })
@@ -48,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
-  // Buscador
   search.addEventListener("input", e => {
     const texto = e.target.value.toLowerCase();
     const filtrados = apuntes.filter(a =>
