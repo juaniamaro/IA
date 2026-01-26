@@ -1,0 +1,12 @@
+[
+  {
+    "titulo": "Introducción",
+    "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.md",
+    "categoria": "Inteligencia Artificial"
+  },
+  {
+    "titulo": "Redes Neuronales",
+    "ruta": "apuntes/inteligencia-artificial/03-redes-neuronales.md",
+    "categoria": "Inteligencia Artificial"
+  }
+]
