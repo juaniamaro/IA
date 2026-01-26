@@ -9,26 +9,56 @@ document.addEventListener("DOMContentLoaded", () => {
   const menu = document.getElementById("menu");
   const content = document.getElementById("content");
   const search = document.getElementById("search");
+  const catDiv = document.getElementById("category-search");
 
+  // Cargar JSON desde GitHub
   fetch("https://raw.githubusercontent.com/juaniamaro/IA/main/data/apuntes.json")
     .then(res => res.json())
     .then(data => {
       apuntes = data;
       renderMenu(apuntes);
+      renderCategoryButtons(apuntes);
     })
     .catch(err => {
       console.error("Error al cargar JSON:", err);
       menu.innerHTML = "<p>No se pudieron cargar los apuntes.</p>";
     });
 
-  function renderMenu(lista) {
+  // Renderizar menú jerárquico
+  function renderMenu(lista, filtroCat = null, filtroTexto = "") {
     menu.innerHTML = "";
-    lista.forEach(apunte => {
-      const div = document.createElement("div");
-      div.className = "apunte-link";
-      div.textContent = apunte.titulo;
-      div.onclick = () => loadApunte(apunte.ruta);
-      menu.appendChild(div);
+
+    lista.forEach(cat => {
+      if (filtroCat && cat.categoria !== filtroCat) return;
+
+      // Categoría
+      const catH2 = document.createElement("h2");
+      catH2.textContent = cat.categoria;
+      menu.appendChild(catH2);
+
+      cat.carpetas.forEach(carpeta => {
+        // Carpeta
+        const carpetaH3 = document.createElement("h3");
+        carpetaH3.textContent = carpeta.titulo;
+        menu.appendChild(carpetaH3);
+
+        if (carpeta.sub) {
+          const subDiv = document.createElement("div");
+          subDiv.className = "sub-menu";
+
+          carpeta.sub.forEach(apunte => {
+            if (apunte.titulo.toLowerCase().includes(filtroTexto.toLowerCase())) {
+              const div = document.createElement("div");
+              div.className = "apunte-link";
+              div.textContent = apunte.titulo;
+              div.onclick = () => loadApunte(apunte.ruta);
+              subDiv.appendChild(div);
+            }
+          });
+
+          menu.appendChild(subDiv);
+        }
+      });
     });
   }
 
@@ -44,11 +74,36 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 
+  // Renderizar botones de categorías con imágenes
+  function renderCategoryButtons(lista) {
+    catDiv.innerHTML = "";
+
+    lista.forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "cat-btn";
+      btn.dataset.cat = cat.categoria;
+
+      // Imagen del icono
+      const img = document.createElement("img");
+      img.src = cat.icono;
+      img.alt = cat.categoria;
+      img.style.width = "24px";
+      img.style.height = "24px";
+      img.style.marginRight = "5px";
+
+      btn.appendChild(img);
+      btn.appendChild(document.createTextNode(cat.categoria));
+      catDiv.appendChild(btn);
+
+      // Click para filtrar categoría
+      btn.addEventListener("click", () => {
+        renderMenu(apuntes, cat.categoria, search.value);
+      });
+    });
+  }
+
+  // Buscador por palabras
   search.addEventListener("input", e => {
-    const texto = e.target.value.toLowerCase();
-    const filtrados = apuntes.filter(a =>
-      a.titulo.toLowerCase().includes(texto)
-    );
-    renderMenu(filtrados);
+    renderMenu(apuntes, null, e.target.value);
   });
 });
