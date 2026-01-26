@@ -47,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
           subDiv.className = "sub-menu";
 
           carpeta.sub.forEach(apunte => {
+            if (!apunte.ruta) return; // <-- Validación para evitar undefined
+
             if (apunte.titulo.toLowerCase().includes(filtroTexto.toLowerCase())) {
               const div = document.createElement("div");
               div.className = "apunte-link";
@@ -62,12 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Función para cargar Markdown
   function loadApunte(ruta) {
+    if (!ruta) {
+      console.warn("Este apunte no tiene ruta definida");
+      return;
+    }
+
     fetch(ruta)
       .then(res => res.text())
-      .then(md => {
-        content.innerHTML = marked.parse(md);
-      })
+      .then(md => { content.innerHTML = marked.parse(md); })
       .catch(err => {
         console.error("Error al cargar apunte:", err);
         content.innerHTML = "<p>No se pudo cargar este apunte.</p>";
@@ -83,15 +89,16 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.className = "cat-btn";
       btn.dataset.cat = cat.categoria;
 
-      // Imagen del icono
-      const img = document.createElement("img");
-      img.src = cat.icono;
-      img.alt = cat.categoria;
-      img.style.width = "24px";
-      img.style.height = "24px";
-      img.style.marginRight = "5px";
+      if (cat.icono) {
+        const img = document.createElement("img");
+        img.src = cat.icono;
+        img.alt = cat.categoria;
+        img.style.width = "24px";
+        img.style.height = "24px";
+        img.style.marginRight = "5px";
+        btn.appendChild(img);
+      }
 
-      btn.appendChild(img);
       btn.appendChild(document.createTextNode(cat.categoria));
       catDiv.appendChild(btn);
 
