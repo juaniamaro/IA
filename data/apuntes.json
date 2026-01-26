@@ -1,12 +1,28 @@
 [
   {
-    "titulo": "Fundamentos de tratamiento de datos para Data Science",
-    "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.md",
-    "categoria": "Inteligencia Artificial"
+    "categoria": "DATA SCIENCE",
+    "icono": "images/fundamentos.png",
+    "carpetas": [
+      {
+        "titulo": "Fundamentos de tratamiento de datos para Data Science",
+        "sub": [
+          { "titulo": "Introducción", "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.md" },
+          { "titulo": "Ejercicios", "ruta": "apuntes/fundamentos/ejercicios.md" }
+        ]
+      }
+    ]
   },
   {
-    "titulo": "Redes Neuronales",
-    "ruta": "apuntes/inteligencia-artificial/03-redes-neuronales.md",
-    "categoria": "Inteligencia Artificial"
+    "categoria": "Aprendizaje Máquina",
+    "icono": "images/aprendizaje.png",
+    "carpetas": [
+      {
+        "titulo": "Algoritmos",
+        "sub": [
+          { "titulo": "Regresión Lineal", "ruta": "apuntes/aprendizaje-maquina/regresion-lineal.md" },
+          { "titulo": "Redes Neuronales", "ruta": "apuntes/aprendizaje-maquina/redes-neuronales.md" }
+        ]
+      }
+    ]
   }
 ]
