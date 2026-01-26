@@ -18,12 +18,10 @@
       <p>Selecciona un apunte para empezar ✨</p>
     </section>
   </main>
-<script>
-  // Esperamos a que marked esté listo y DOM cargado
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("Marked está definido?", typeof marked);
-  });
+<script type="module">
+  import { marked } from 'https://cdn.jsdelivr.net/npm/marked/marked.esm.js';
+  window.marked = marked;
 </script>
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>
