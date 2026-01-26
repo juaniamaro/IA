@@ -7,21 +7,26 @@
 </head>
 <body>
 
-  <header>
-    <h1>📚 Apuntes de Inteligencia Artificial</h1>
-    <input type="text" id="search" placeholder="Buscar apuntes...">
-    <div id="category-search">
-  <!-- Los botones se generarán dinámicamente desde JS -->
-</div>
-  </header>
+<header>
+  <h1>📚 Apuntes de Inteligencia Artificial</h1>
+  
+  <!-- Buscador por palabras -->
+  <input type="text" id="search" placeholder="Buscar apuntes por palabras...">
+  
+  <!-- Buscador por categorías (iconos imagen) -->
+  <div id="category-search"></div>
+</header>
 
-  <main>
-    <aside id="menu"></aside>
-    <section id="content">
-      <p>Selecciona un apunte para empezar ✨</p>
-    </section>
-  </main>
+<main>
+  <aside id="menu"></aside>
+  <section id="content">
+    <p>Selecciona un apunte para empezar ✨</p>
+  </section>
+</main>
+
+<!-- Librería para renderizar Markdown -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 </html>
