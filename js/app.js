@@ -4,7 +4,7 @@ const menu = document.getElementById("menu");
 const content = document.getElementById("content");
 const search = document.getElementById("search");
 
-fetch("js/apuntes.json")
+fetch("data/apuntes.json")
   .then(res => res.json())
   .then(data => {
     apuntes = data;
