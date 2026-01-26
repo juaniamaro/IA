@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   if (typeof marked === "undefined") {
-    console.error("marked no está definido. Revisa que el script de marked.min.js esté cargado correctamente.");
+    console.error("marked no está definido. Revisa el script de marked.min.js");
     return;
   }
 
