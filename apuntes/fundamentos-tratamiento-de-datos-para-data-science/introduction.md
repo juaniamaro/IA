@@ -2,7 +2,7 @@
 
 Big data technologies allow companies to extract value from their data to detect opportunities, optimize processes, and improve decision-making, provided that analysis and modeling techniques specific to the work of a data scientist are applied.
 
-![Venn Diagram](images/1610458866824.png)
+![Venn Diagram](https://github.com/juaniamaro/IA/blob/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1610458866824.png)
 
 The purpose of the diagram is to illustrate the interdisciplinarity inherent in the work of a data scientist.
 
