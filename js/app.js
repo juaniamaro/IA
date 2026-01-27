@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  if (typeof marked === "undefined") {
-    console.error("marked no está definido. Revisa el script de marked.min.js");
-    return;
-  }
 
   let apuntes = [];
 
@@ -47,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
           subDiv.className = "sub-menu";
 
           carpeta.sub.forEach(apunte => {
-            if (!apunte.ruta) return; // <-- Validación para evitar undefined
+            if (!apunte.ruta) return; // Validación
 
             if (apunte.titulo.toLowerCase().includes(filtroTexto.toLowerCase())) {
               const div = document.createElement("div");
@@ -64,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Función para cargar Markdown
+  // Función para cargar apuntes como HTML
   function loadApunte(ruta) {
     if (!ruta) {
       console.warn("Este apunte no tiene ruta definida");
@@ -73,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch(ruta)
       .then(res => res.text())
-      .then(md => { content.innerHTML = marked.parse(md); })
+      .then(html => { content.innerHTML = html; }) // Ya no se usa marked
       .catch(err => {
         console.error("Error al cargar apunte:", err);
         content.innerHTML = "<p>No se pudo cargar este apunte.</p>";
