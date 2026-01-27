@@ -4,13 +4,10 @@ Big data technologies allow companies to extract value from their data to detect
 
 ![Venn Diagram](images/1610458866824.png)
 
-Una red neuronal es un modelo inspirado en el cerebro humano.
+The idea of ​​the diagram is to show the interdisciplinarity inherent in the work of the data scientist.
 
-## Partes
-- Neuronas
-- Pesos
-- Función de activación
+##THE THREE SKILL GROUPS
 
-## Ejemplo
-```python
-import torch
+| KNOWLEDGE OF STATISTICS AND MATHEMATICS | KNOWLEDGE OF INFORMATION TECHNOLOGIES | KNOWLEDGE OF SPECIFIC BUSINESS AREAS OR DOMAINS |
+|-----------|-----------|-----------|
+| Dato 1    | Dato 2    |
