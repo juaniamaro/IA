@@ -1,4 +1,5 @@
-# Redes Neuronales
+#INTRODUCTION
+Big data technologies allow companies to extract value from their data to detect opportunities, optimize processes, and improve decisions, provided that analysis and modeling techniques specific to the work of a data scientist are applied.
 
 ![Perceptrón](imagenes/perceptron.png)
 
