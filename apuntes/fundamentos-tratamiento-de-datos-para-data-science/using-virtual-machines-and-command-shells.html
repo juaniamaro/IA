@@ -16,17 +16,74 @@
         th {
             background-color: #f2f2f2;
         }
+
+        /* WARNING BOX */
+        .warning-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 2px solid #c0392b;
+            padding: 15px;
+            background-color: #fdecea;
+            border-radius: 6px;
+            margin: 20px 0;
+            max-width: 800px;
+        }
+
+        .warning-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #c0392b;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .warning-icon span {
+            width: 26px;
+            height: 26px;
+            background-color: #fff;
+            color: #c0392b;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 26px;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+
+        .warning-text {
+            font-size: 14px;
+            color: #333;
+        }
     </style>
 </head>
 <body>
 
-<h1>COMMAND SHELL</h1>
+<h1>COMMAND SHELL AND VIRTUAL MACHINES</h1>
 
 <p>
    A shell is, by definition, an application that acts as an interface between the user and the operating system. Its main function is to interpret commands written in text, execute them, and return the results also in text format.
    In addition to processing simple commands, the shell allows you to automate tasks using scripts, manage processes, redirect input and output, chain commands, and control the working environment (variables, permissions, paths, etc.). Thanks to this, it becomes a very powerful tool for both daily use and system administration and development.
    In short, the shell not only allows you to communicate with the operating system, but also offers a complete control language that facilitates advanced interaction, automation, and efficient management of system resources.
 </p>
+
+<h2>VIRTUAL BOX AND THE CONCEPT OF VIRTUAL MACHINES</h2>    
+
+<p>
+    The existence of different operating systems creates the disadvantage that we have to create different versions of the same program to adapt it to them, but we don't do it many times because it is not profitable for companies.
+    Virtual machines work by using an operating system installed on the host system that simulates another system.
+</p>
+
+<div class="warning-box">
+    <div class="warning-icon">
+        <span>!</span>
+    </div>
+    <div class="warning-text">
+        To create and run a virtual machine, special software is required to perform the simulation.
+        Some of the most popular options are <strong>VirtualBox</strong> and <strong>VMware</strong>.
+    </div>
+</div>
 
 </body>
 </html>
