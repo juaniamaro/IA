@@ -9,7 +9,7 @@
           { "titulo": "Introducción", "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.html" }
         ],
          "sub": [
-          { "titulo": "Using virtual machines and command shell", "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/introduction.html" }
+          { "titulo": "Using virtual machines and command shell", "ruta": "apuntes/fundamentos-tratamiento-de-datos-para-data-science/using-virtual-machines-and-command-shells.html" }
         ]
       }
     ]
