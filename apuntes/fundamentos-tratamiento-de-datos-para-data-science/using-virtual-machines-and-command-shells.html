@@ -56,6 +56,16 @@
             font-size: 14px;
             color: #333;
         }
+        .purple-dots {
+                list-style-type: disc; /* mantiene los puntitos normales */
+                color: #8e44ad; /* color morado */
+            }
+            .purple-dots li {
+                color: #333; /* texto en gris oscuro */
+            }
+            .purple-dots li::marker {
+                color: #8e44ad; /* puntitos morados */
+            }
     </style>
 </head>
 <body>
@@ -123,6 +133,11 @@
     </div>
 </div>
 <h2>CREATING AND CONFIGURING A VIRTUAL MACHINE</h2>
-    
+<h3>INSTALLATION REQUIREMENTS</h3>
+<ul class="purple-dots">
+    <li><strong>RAM Memory:</strong> Minimum 8 GB</li>
+    <li><strong>Storage:</strong> At least 20 GB of free space</li>
+    <li><strong>Processor:</strong> A relatively modern processor with x86 architecture</li>
+</ul>    
 </body>
 </html>
