@@ -89,86 +89,45 @@
             .download-box a:hover {
                 background-color: #732d91;
             }
-            .carousel-container {
+           .timeline {
+                  border-left: 3px solid #8e44ad;
+                  margin: 30px 0;
+                  padding-left: 30px;
+                }
+                
+                .step {
+                  position: relative;
+                  margin-bottom: 40px;
+                }
+                
+                .step .dot {
+                  position: absolute;
+                  left: -35px;
+                  top: 5px;
+                  width: 16px;
+                  height: 16px;
+                  background: #8e44ad;
+                  border-radius: 50%;
+                }
+                
+                .step-content h4 {
+                  margin: 0 0 5px;
+                  color: #5e3370;
+                  font-size: 18px;
+                }
+                
+                .step-content p {
+                  margin: 0 0 10px;
+                  font-size: 15px;
+                }
+                
+                .step-content img {
                   width: 100%;
                   max-width: 600px;
-                  margin: auto;
-                  position: relative;
-                  overflow: hidden;
-                  border-radius: 16px;
-                  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                  border-radius: 10px;
+                  border: 2px solid #8e44ad;
+                  box-shadow: 0 6px 14px rgba(0,0,0,.15);
                 }
-                
-                .carousel {
-                  display: flex;
-                  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
-                }
-                
-                .slide {
-                  min-width: 100%;
-                  position: relative;
-                }
-                
-                .slide img {
-                  width: 100%;
-                  height: 350px;
-                  object-fit: cover;
-                  display: block;
-                }
-                
-                .caption {
-                  position: absolute;
-                  bottom: 0;
-                  width: 100%;
-                  padding: 14px;
-                  background: linear-gradient(transparent, rgba(0,0,0,0.75));
-                  color: white;
-                  font-size: 18px;
-                  text-align: center;
-                }
-                
-                /* Botones */
-                .nav {
-                  position: absolute;
-                  top: 50%;
-                  transform: translateY(-50%);
-                  background: rgba(0,0,0,0.5);
-                  border: none;
-                  color: white;
-                  padding: 12px 16px;
-                  cursor: pointer;
-                  border-radius: 50%;
-                  font-size: 18px;
-                  z-index: 10;
-                }
-                
-                .prev { left: 10px; }
-                .next { right: 10px; }
-                
-                /* Indicadores */
-                .dots {
-                  position: absolute;
-                  bottom: 10px;
-                  width: 100%;
-                  text-align: center;
-                }
-                
-                .dot {
-                  height: 10px;
-                  width: 10px;
-                  margin: 0 5px;
-                  background: rgba(255,255,255,0.5);
-                  border-radius: 50%;
-                  display: inline-block;
-                  cursor: pointer;
-                  transition: 0.3s;
-                }
-                
-                .dot.active {
-                  background: white;
-                  transform: scale(1.3);
-                }
-               
     </style>
 </head>
 <body>
@@ -259,51 +218,72 @@
         Lubuntu Download Page
     </a>
     </div>
-    <div class="carousel-container">
-  <div class="carousel" id="carousel">
+    <div class="timeline">
 
-    <div class="slide active">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 1">
-      <div class="caption">Once the system image is downloaded, we open VB and press [button name] to give it a type and version</div>
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 1</h4>
+      <p>Once the system image is downloaded, we open VB and press [button name] to give it a type and version.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 1">
     </div>
-
-    <div class="slide">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 2">
-      <div class="caption">You must choose how much memory to allocate to the virtualized system.</div>
-    </div>
-
-    <div class="slide">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 3">
-      <div class="caption">In the next window, verify that the "Create virtual disk now" option has been selected and click on Create</div>
-    </div>
-      
-    <div class="slide">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 4">
-      <div class="caption">In the next window, you choose the type of file you want to use for the virtual hard drive.</div>
-    </div>
-
-     <div class="slide">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 5">
-      <div class="caption">The type of storage on the hard drive is selected</div>
-    </div>
-
-    <div class="slide">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 6">
-      <div class="caption">The user is asked where the file should be saved. By default, it will be saved in: “C:\Users\username\VirtualBox VMs\Virtual-Machine-Name”. 
-          This can be changed by clicking on the folder icon. The maximum hard drive size can also be configured in this window.</div>
-    </div>
-      
-    <div class="slide">
-      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Slide 7">
-      <div class="caption">Clicking on Create opens the updated Virtual Box window with the configured machine.</div>
-    </div>
-      
   </div>
 
-  <button class="nav prev">❮</button>
-  <button class="nav next">❯</button>
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 2</h4>
+      <p>You must choose how much memory to allocate to the virtualized system.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 2">
+    </div>
+  </div>
 
-  <div class="dots"></div>
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 3</h4>
+      <p>In the next window, verify that the "Create virtual disk now" option has been selected and click on Create.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 3">
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 4</h4>
+      <p>In the next window, you choose the type of file you want to use for the virtual hard drive.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 4">
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 5</h4>
+      <p>The type of storage on the hard drive is selected.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 5">
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 6</h4>
+      <p>The user is asked where the file should be saved. By default, it will be saved in: “C:\Users\username\VirtualBox VMs\Virtual-Machine-Name”. This can be changed by clicking on the folder icon. The maximum hard drive size can also be configured in this window.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 6">
+    </div>
+  </div>
+
+  <div class="step">
+    <span class="dot"></span>
+    <div class="step-content">
+      <h4>Step 7</h4>
+      <p>Clicking on Create opens the updated Virtual Box window with the configured machine.</p>
+      <img src="https://raw.githubusercontent.com/juaniamaro/IA/main/apuntes/fundamentos-tratamiento-de-datos-para-data-science/images/1.png" alt="Step 7">
+    </div>
+  </div>
+
+</div>
 </div>
 </body>
 </html>
