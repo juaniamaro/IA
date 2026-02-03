@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(res => res.text())
       .then(html => {
         content.innerHTML = html;
-        initCarousel();   // 👈 ACTIVAMOS CARRUSEL CUANDO CARGA HTML
       })
       .catch(err => {
         console.error("Error al cargar apunte:", err);
@@ -114,95 +113,5 @@ document.addEventListener("DOMContentLoaded", () => {
   search.addEventListener("input", e => {
     renderMenu(apuntes, null, e.target.value);
   });
-
-  // ===============================
-  // CARRUSEL PRO
-  // ===============================
-  function initCarousel() {
-
-    const carousel = document.getElementById("carousel");
-    if (!carousel) return; // 👈 Si no hay carrusel en ese HTML, no hace nada
-
-    const slides = carousel.querySelectorAll(".slide");
-    const prev = document.querySelector(".prev");
-    const next = document.querySelector(".next");
-    const dotsContainer = document.querySelector(".dots");
-
-    let index = 0;
-    let interval;
-    const delay = 3500;
-
-    dotsContainer.innerHTML = "";
-
-    slides.forEach((_, i) => {
-      const dot = document.createElement("span");
-      dot.className = "dot";
-      if (i === 0) dot.classList.add("active");
-      dot.onclick = () => goToSlide(i);
-      dotsContainer.appendChild(dot);
-    });
-
-    const dots = document.querySelectorAll(".dot");
-
-    function updateCarousel() {
-      carousel.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(d => d.classList.remove("active"));
-      dots[index].classList.add("active");
-    }
-
-    function goToSlide(i) {
-      index = i;
-      updateCarousel();
-      resetAutoplay();
-    }
-
-    next.onclick = () => {
-      index = (index + 1) % slides.length;
-      updateCarousel();
-      resetAutoplay();
-    };
-
-    prev.onclick = () => {
-      index = (index - 1 + slides.length) % slides.length;
-      updateCarousel();
-      resetAutoplay();
-    };
-
-    function startAutoplay() {
-      interval = setInterval(() => {
-        index = (index + 1) % slides.length;
-        updateCarousel();
-      }, delay);
-    }
-
-    function resetAutoplay() {
-      clearInterval(interval);
-      startAutoplay();
-    }
-
-    startAutoplay();
-
-    // Pausa al pasar ratón
-    carousel.parentElement.addEventListener("mouseenter", () => clearInterval(interval));
-    carousel.parentElement.addEventListener("mouseleave", startAutoplay);
-
-    // Swipe móvil
-    let startX = 0;
-
-    carousel.addEventListener("touchstart", e => {
-      startX = e.touches[0].clientX;
-    });
-
-    carousel.addEventListener("touchend", e => {
-      const endX = e.changedTouches[0].clientX;
-      const diff = startX - endX;
-
-      if (Math.abs(diff) > 50) {
-        if (diff > 0) next.click();
-        else prev.click();
-      }
-    });
-
-  }
 
 });
